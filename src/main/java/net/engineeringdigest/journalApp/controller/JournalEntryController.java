@@ -34,17 +34,21 @@ public class JournalEntryController {
     }
     @GetMapping("/get/{getId}")
     public ResponseEntity<JournalEntry> getById(@PathVariable ObjectId getId){
+
         Optional<JournalEntry> journalEntry = journalEntryService.getById(getId);
         if(journalEntry.isPresent()){
             return new ResponseEntity<>(journalEntry.get(), HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
     }
+
     @GetMapping("/delete/{getId}")
     public ResponseEntity<?> deleteById(@PathVariable ObjectId getId){
         journalEntryService.deleteById(getId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
     @PutMapping("/update/{Id}")
     public ResponseEntity<?> update(@PathVariable ObjectId Id,@RequestBody JournalEntry newEntry){
         JournalEntry old = journalEntryService.getById(Id).orElse(null);
