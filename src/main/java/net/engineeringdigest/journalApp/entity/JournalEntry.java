@@ -1,7 +1,26 @@
 package net.engineeringdigest.journalApp.entity;
 
-public class JournalEntry {   // pojo class
-    private long id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.time.LocalDate;
+
+@Document(collection = "journal_entries")
+public class JournalEntry {
+    //  pojo class
+    @Id
+    private String id;
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    private LocalDate date;
+
     private String title;
 
     public String getTitle() {
@@ -12,11 +31,11 @@ public class JournalEntry {   // pojo class
         this.title = title;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
