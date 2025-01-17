@@ -10,7 +10,7 @@ public class JournalEntry {
     //  pojo class
     @Id
     private String id;
-
+    private LocalDate date;
     public LocalDate getDate() {
         return date;
     }
@@ -19,7 +19,7 @@ public class JournalEntry {
         this.date = date;
     }
 
-    private LocalDate date;
+
 
     private String title;
 
