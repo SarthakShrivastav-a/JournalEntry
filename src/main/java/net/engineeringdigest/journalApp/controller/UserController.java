@@ -30,9 +30,22 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
-    public ResponseEntity<?> updateUser(@PathVariable ){
-
-    }
+//    @PutMapping("/update/{username}")
+//    public ResponseEntity<?> updateUser(@PathVariable String username,@RequestBody User user) {
+//        try {
+//            User userInDb = userService.findByUserName(username);
+//            if (userInDb != null) {
+//                userInDb.setUserName(user.getUserName() != null && !user.getUserName().equals("") ? user.getUserName() : userInDb.getUserName());
+//                userInDb.setPassword(user.getPassword() != null && !user.getPassword().equals("") ? user.getPassword() : userInDb.getPassword());
+//                userService.saveEntry(userInDb, userName);
+//                return new ResponseEntity<>(userService.findByUserName(username), HttpStatus.OK);
+//            }
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        } catch (Exception e) {
+//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//
+//    }
 
 
 

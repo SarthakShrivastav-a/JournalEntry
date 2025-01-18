@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Optional;
 
 
 @Component
@@ -22,11 +21,22 @@ public class UserService {
     public List<User> getAll(){
         return userRepository.findAll();
     }
-    public Optional<User> getById(ObjectId getId){
-        return userRepository.findById(getId);
+    public User findByUserName(String userName){
+        return userRepository.findByUserName(userName);
     }
     public void deleteById(ObjectId Id){
         userRepository.deleteById(Id);
+    }
+
+    public void delUserJourEntry(ObjectId id,String userName){
+        User user = userRepository.findByUserName(userName);
+        user.getJournalEntries().removeIf(x -> x.getId().equals(id));
+        userRepository.save(user);
+    }
+
+    public List<?> getEntries(String userName){
+        User user = userRepository.findByUserName(userName);
+        return user.getJournalEntries();
     }
 
 }

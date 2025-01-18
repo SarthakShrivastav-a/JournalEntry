@@ -16,7 +16,7 @@ import java.util.List;
 public class User {
 
     @Id
-    private ObjectId Id;
+    private ObjectId id;
 
     @Indexed(unique = true)  //mongodb annotation, we have to add a config in application prop manually telling SB to auto index
 
